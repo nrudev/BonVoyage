@@ -9,7 +9,7 @@
     position: relative;
 }
 
-.main-photo h1, h3, button {
+.main-photo h1, .main-photo h3, .main-photo button {
     position: absolute;
     font-size: 60px;
     top: 11rem;
@@ -24,6 +24,7 @@
 }
 
 .main-photo button {
+    font-size: 18px;
     top: 24rem;
     color: black;
 }

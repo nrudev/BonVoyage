@@ -1,5 +1,6 @@
 package com.nru.mytb.domain.places;
 
+import com.nru.mytb.domain.BaseTimeEntity;
 import com.nru.mytb.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Places {
+public class Places extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

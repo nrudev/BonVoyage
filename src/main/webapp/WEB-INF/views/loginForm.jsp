@@ -6,7 +6,7 @@
     <div class="card-body">
         <div class="form-group">
             <label for="username">이메일</label>
-            <input type="text" class="form-control" id="username">
+            <input type="email" class="form-control" id="username">
         </div>
         <div class="form-group">
             <label for="password">비밀번호</label>

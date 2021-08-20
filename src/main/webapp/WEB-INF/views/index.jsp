@@ -3,9 +3,9 @@
 
 <div class="main-photo">
     <img src="/images/main.jpeg" alt="main">
-    <h1>죽기 전에 꼭 가보고픈<br/>여행지가 있나요?</h1>
+    <h1>꼭 가보고 싶은<br/>여행지가 있나요?</h1>
     <h3>Bon Voyage에 기록해두세요!</h3>
-    <button class="btn btn-info">여행 장소 기록하기!</button>
+    <a href="/places/save" class="btn btn-info">여행 장소 기록하기!</a>
 </div>
 
 <%@include file="./layout/footer.jsp"%>

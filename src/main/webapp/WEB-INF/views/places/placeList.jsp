@@ -25,6 +25,6 @@
         </tr>
         </tbody>
     </table>
-    <button class="btn btn-info" id="placeRegBtn">글쓰기</button>
+    <a href="/places/save" class="btn btn-info">글쓰기</a>
 </div>
 <%@include file="../layout/footer.jsp"%>

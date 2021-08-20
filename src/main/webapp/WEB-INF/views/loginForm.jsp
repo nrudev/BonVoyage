@@ -5,8 +5,8 @@
     <div class="card-header">LOGIN</div>
     <div class="card-body">
         <div class="form-group">
-            <label for="username">이메일</label>
-            <input type="email" class="form-control" id="username" />
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" />
         </div>
         <div class="form-group">
             <label for="password">비밀번호</label>

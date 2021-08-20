@@ -7,8 +7,8 @@
     <div class="card-header">SIGNUP</div>
     <form class="card-body">
         <div class="form-group">
-            <label for="username">이메일</label>
-            <input type="email" class="form-control" id="username" placeholder="이메일을 입력하세요" />
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요" />
             <button class="btn btn-outline-danger" id="emailValidateBtn">중복확인</button>
         </div>
         <div class="form-group">

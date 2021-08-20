@@ -2,7 +2,7 @@
     display: block;
 }
 
-input#username, input#nick {
+input#email, input#nick {
     width: 80%;
 }
 

@@ -8,7 +8,7 @@ public class PlacesController {
 
     @GetMapping("/places")
     public String placeList() {
-        return "/places/placeList";
+        return "/places/place-list";
     }
 
     @GetMapping("/places/save")

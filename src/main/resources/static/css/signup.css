@@ -1,0 +1,11 @@
+.form-group label {
+    display: block;
+}
+
+input#username, input#nick {
+    width: 80%;
+}
+
+.form-control, button {
+    display: inline-block;
+}

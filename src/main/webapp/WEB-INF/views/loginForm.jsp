@@ -6,15 +6,15 @@
     <div class="card-body">
         <div class="form-group">
             <label for="username">이메일</label>
-            <input type="email" class="form-control" id="username">
+            <input type="email" class="form-control" id="username" />
         </div>
         <div class="form-group">
             <label for="password">비밀번호</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" id="password" />
         </div>
         <div class="form-check">
             <label for="remember" class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="remember">Remember Me
+                <input type="checkbox" class="form-check-input" id="remember" />Remember Me
             </label>
         </div>
         <a href="/signup">아직 회원이 아니신가요?</a>

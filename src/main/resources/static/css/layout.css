@@ -1,6 +1,23 @@
-body {
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html, body {
     font-family: 'NanumSquareRound';
     user-select: none;
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 180px;
+}
+
+.nav-item {
+    font-size: 20px;
 }
 
 .container {
@@ -13,8 +30,8 @@ body {
 }
 
 .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 footer {

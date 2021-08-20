@@ -19,17 +19,18 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-info navbar-light">
-    <a class="navbar-brand" href="/"><img src="/images/logo2.png" alt="logo"></a>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/places">Places</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-        </li>
-    </ul>
-</nav>
+<div class="wrap">
+    <nav class="navbar navbar-expand-sm bg-info navbar-light">
+        <a class="navbar-brand" href="/"><img src="/images/logo2.png" alt="logo"></a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/places">Places</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+        </ul>
+    </nav>

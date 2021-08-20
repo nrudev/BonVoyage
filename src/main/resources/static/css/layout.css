@@ -3,6 +3,10 @@ body {
     user-select: none;
 }
 
+.container {
+    margin: 30px auto;
+}
+
 .bg-4 {
     background-color: lightgray;
     color: black;

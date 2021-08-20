@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/places.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-info navbar-light">
@@ -21,14 +26,10 @@
             <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Places</a>
+            <a class="nav-link" href="/places">Places</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
         </li>
     </ul>
 </nav>
-<%--<div class="container">--%>

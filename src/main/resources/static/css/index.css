@@ -1,0 +1,29 @@
+.main-photo {
+    margin: 10px 20px;
+}
+
+.main-photo img {
+    width: 100%;
+    max-width: 1200px;
+    height: 30rem;
+    position: relative;
+}
+
+.main-photo h1, h3, button {
+    position: absolute;
+    font-size: 60px;
+    top: 11rem;
+    left: 3rem;
+}
+
+.main-photo h3 {
+    font-size: 30px;
+    top: 20rem;
+    color: #38a2b8;
+    background-color: black;
+}
+
+.main-photo button {
+    top: 24rem;
+    color: black;
+}

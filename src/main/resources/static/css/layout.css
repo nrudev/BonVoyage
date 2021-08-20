@@ -1,0 +1,18 @@
+.bg-4 {
+    background-color: lightgray;
+    color: black;
+}
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+footer {
+    font-size: 20px;
+    position: absolute;
+}
+
+.made-by {
+    font-size: 17px;
+}

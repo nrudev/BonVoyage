@@ -9,12 +9,12 @@
         <div class="form-group">
             <label for="email">이메일</label>
             <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요" />
-            <button class="btn btn-outline-danger" id="emailValidateBtn">중복확인</button>
+            <button type="button" class="btn btn-outline-danger" id="emailValidateBtn">중복확인</button>
         </div>
         <div class="form-group">
             <label for="nick">닉네임</label>
             <input type="text" class="form-control" id="nick" placeholder="닉네임을 입력하세요" />
-            <button class="btn btn-outline-danger" id="nickValidateBtn">중복확인</button>
+            <button type="button" class="btn btn-outline-danger" id="nickValidateBtn">중복확인</button>
         </div>
         <div class="form-group">
             <label for="password">비밀번호</label>
@@ -26,8 +26,9 @@
         </div>
     </form>
     <div class="card-footer">
-        <button class="btn btn-info" id="signupBtn">회원가입</button>
+        <button type="button" class="btn btn-info" id="signupBtn">회원가입</button>
     </div>
 </div>
 
+<script src="/js/user.js"></script>
 <%@include file="./layout/footer.jsp"%>

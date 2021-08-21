@@ -25,8 +25,8 @@ let signup = {
     },
     save: function () {
         let data = {
-            email: $('#email').val(),
-            nick: $('#nick').val(),
+            email: $('#email').val().replaceAll(" ", ""),
+            nick: $('#nick').val().replaceAll(" ", ""),
             password: $('#password').val()
         };
 
@@ -64,21 +64,22 @@ let signup = {
     },
     emailValidate: function () {
         let email = $('#email').val();
+        let trimmedEmail = email.replaceAll(" ", "");
         let emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-        // 이메일 양식 맞춤 필요
+
         if (email !== "" && email.match(emailRegExp) != null) {
             $.ajax({
                 type: 'POST',
                 url: '/api/user/emailCheck',
-                data: email,
+                data: trimmedEmail,
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8'
             }).done(function (data) {
-                console.log(data);
                 if (data) {
                     alert('사용 가능한 이메일입니다.');
                     $('#emailValidateBtn').attr('disabled', true);
-                    validationCheck[0] = email;
+                    $('#email').val(trimmedEmail);
+                    validationCheck[0] = trimmedEmail;
                 } else {
                     alert('이미 등록된 이메일입니다.');
                     $('#email').val('');
@@ -103,18 +104,19 @@ let signup = {
     },
     nickValidate: function () {
         let nick = $('#nick').val();
-
+        let trimmedNick = nick.replaceAll(" ", "");
         $.ajax({
             type: 'POST',
             url: '/api/user/nickCheck',
-            data: nick,
+            data: trimmedNick,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
         }).done(function (data) {
             if (data) {
                 alert('사용 가능한 닉네임입니다.');
                 $('#nickValidateBtn').attr('disabled', true);
-                validationCheck[1] = nick;
+                $('#nick').val(trimmedNick);
+                validationCheck[1] = trimmedNick;
             } else {
                 alert('이미 사용중인 닉네임입니다.');
                 $('#nick').val('');

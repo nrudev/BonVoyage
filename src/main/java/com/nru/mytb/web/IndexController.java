@@ -11,7 +11,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/loginForm")
     public String login() {
         return "loginForm";
     }

@@ -30,7 +30,7 @@
                 <a class="nav-link" href="/places">Places</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/loginForm">Login</a>
             </li>
         </ul>
     </nav>

@@ -5,8 +5,10 @@ import com.nru.mytb.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
+@Setter
 @Getter
 public class UserSaveRequestDto {
 

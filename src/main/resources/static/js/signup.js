@@ -1,6 +1,6 @@
 let validationCheck = ["", "", false];
 
-let user = {
+let signup = {
     init: function () {
         _this = this;
 
@@ -146,4 +146,4 @@ let user = {
     }
 }
 
-user.init();
+signup.init();

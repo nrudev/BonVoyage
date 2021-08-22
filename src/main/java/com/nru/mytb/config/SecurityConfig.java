@@ -32,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().ignoringAntMatchers("/h2-console/**").disable();
         http.authorizeRequests()
-                .antMatchers("/places/**").authenticated()
                 .antMatchers("/api/places/**").authenticated()
                 .anyRequest().permitAll()
                 .and()

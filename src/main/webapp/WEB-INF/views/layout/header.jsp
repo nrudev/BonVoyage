@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal"/>
+</sec:authorize>
+
 <!doctype html>
 <html lang="ko">
 <head>
@@ -30,7 +37,14 @@
                 <a class="nav-link" href="/places">Places</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/loginForm">Login</a>
+                <c:choose>
+                    <c:when test="${empty principal}">
+                        <a class="nav-link" href="/loginForm">Login</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </c:otherwise>
+                </c:choose>
             </li>
         </ul>
     </nav>

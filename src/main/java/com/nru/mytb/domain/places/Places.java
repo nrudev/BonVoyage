@@ -5,12 +5,15 @@ import com.nru.mytb.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
 @Getter
 @Entity
+@DynamicInsert
 public class Places extends BaseTimeEntity {
 
     @Id
@@ -23,6 +26,7 @@ public class Places extends BaseTimeEntity {
     @Column(nullable = false)
     private String content;
 
+    @ColumnDefault("0")
     private Long count;
 
     @ManyToOne

@@ -11,4 +11,6 @@ public interface PlacesService {
     Long save(PlacesSaveRequestDto requestDto, User user);
 
     List<PlacesResponseDto> getList();
+
+    PlacesResponseDto findById(Long id);
 }

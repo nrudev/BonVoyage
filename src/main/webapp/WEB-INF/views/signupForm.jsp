@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="./layout/header.jsp"%>
-
+<link rel="stylesheet" href="/css/login.css">
 <link rel="stylesheet" href="/css/signup.css">
 
 <div class="card">

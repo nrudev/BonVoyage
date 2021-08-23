@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/places.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

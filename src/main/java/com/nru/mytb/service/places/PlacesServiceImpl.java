@@ -1,5 +1,6 @@
 package com.nru.mytb.service.places;
 
+import com.nru.mytb.domain.places.Places;
 import com.nru.mytb.domain.places.PlacesRepository;
 import com.nru.mytb.domain.user.User;
 import com.nru.mytb.web.dto.places.PlacesResponseDto;
@@ -27,5 +28,12 @@ public class PlacesServiceImpl implements PlacesService {
         return placesRepository.findAllByOrderByIdDesc().stream()
                 .map(PlacesResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public PlacesResponseDto findById(Long id) {
+        Places entity = placesRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다."));
+
+        return new PlacesResponseDto(entity);
     }
 }

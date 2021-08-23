@@ -2,9 +2,13 @@ package com.nru.mytb.service.places;
 
 import com.nru.mytb.domain.places.PlacesRepository;
 import com.nru.mytb.domain.user.User;
+import com.nru.mytb.web.dto.places.PlacesResponseDto;
 import com.nru.mytb.web.dto.places.PlacesSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -16,5 +20,12 @@ public class PlacesServiceImpl implements PlacesService {
     public Long save(PlacesSaveRequestDto requestDto, User user) {
         requestDto.setUser(user);
         return placesRepository.save(requestDto.toEntity()).getId();
+    }
+
+    @Override
+    public List<PlacesResponseDto> getList() {
+        return placesRepository.findAllByOrderByIdDesc().stream()
+                .map(PlacesResponseDto::new)
+                .collect(Collectors.toList());
     }
 }

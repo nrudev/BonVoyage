@@ -20,4 +20,5 @@ public class PlacesApiController {
 
         return placesService.save(requestDto, principal.getUser());
     }
+
 }

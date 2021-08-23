@@ -23,4 +23,5 @@
     </div>
 </div>
 
+<script src="/js/places.js"></script>
 <%@include file="../layout/footer.jsp"%>

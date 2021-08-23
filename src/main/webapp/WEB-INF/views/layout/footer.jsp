@@ -8,6 +8,5 @@
     </footer>
 </div>
 
-<script src="/js/places.js"></script>
 </body>
 </html>

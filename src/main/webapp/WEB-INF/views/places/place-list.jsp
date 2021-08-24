@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${places}" var="place">
+        <c:forEach items="${places.content}" var="place">
             <tr>
                 <td>${place.id}</td>
                 <td><a href="/places/${place.id}">${place.title}</a></td>
@@ -28,5 +28,36 @@
         </tbody>
     </table>
     <a href="/places/save" class="btn btn-info">글쓰기</a>
+    <div class="text-xs-center">
+        <ul class="pagination justify-content-center">
+            <!-- 이전 -->
+            <c:choose>
+                <c:when test="${places.first}"></c:when>
+                <c:otherwise>
+                    <li class="page-item"><a href="/places?page=0" class="page-link">&laquo;</a></li>
+                    <li class="page-item"><a href="/places?page=${places.number-1}" class="page-link">&lt;</a></li>
+                </c:otherwise>
+            </c:choose>
+            <!-- 페이지 번호 -->
+            <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                <c:choose>
+                    <c:when test="${places.pageable.pageNumber + 1 == i}">
+                        <li class="page-item disabled"><a href="/places?page=${i-1}" class="page-link">${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a href="/places?page=${i-1}" class="page-link">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <!-- 다음 -->
+            <c:choose>
+                <c:when test="${places.last}"></c:when>
+                <c:otherwise>
+                    <li class="page-item"><a href="/places?page=${places.number+1}" class="page-link">&gt;</a></li>
+                    <li class="page-item"><a href="/places?page=${places.totalPages-1}" class="page-link">&raquo;</a></li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </div>
 </div>
 <%@include file="../layout/footer.jsp"%>

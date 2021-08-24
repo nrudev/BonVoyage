@@ -7,11 +7,10 @@ import com.nru.mytb.web.dto.places.PlacesResponseDto;
 import com.nru.mytb.web.dto.places.PlacesSaveRequestDto;
 import com.nru.mytb.web.dto.places.PlacesUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -28,10 +27,8 @@ public class PlacesServiceImpl implements PlacesService {
 
     @Override
     @Transactional
-    public List<PlacesResponseDto> getList() {
-        return placesRepository.findAllByOrderByIdDesc().stream()
-                .map(PlacesResponseDto::new)
-                .collect(Collectors.toList());
+    public Page<Places> getList(Pageable pageable) {
+        return placesRepository.findAll(pageable);
     }
 
     @Override

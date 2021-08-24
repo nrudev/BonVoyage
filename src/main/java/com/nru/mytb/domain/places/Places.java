@@ -45,4 +45,8 @@ public class Places extends BaseTimeEntity {
         this.title = title;
         this.content = content;
     }
+
+    public void updateCount(Long count) {
+        this.count = count;
+    }
 }

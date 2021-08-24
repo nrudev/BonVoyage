@@ -38,7 +38,7 @@ public class PlacesServiceImpl implements PlacesService {
     @Transactional
     public PlacesResponseDto findById(Long id) {
         Places entity = placesRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다."));
-
+        entity.updateCount(entity.getCount() + 1);
         return new PlacesResponseDto(entity);
     }
 

@@ -16,7 +16,7 @@
         <div class="card-footer">
             <a href="/places" class="btn btn-secondary">목록</a>
             <c:if test="${place.user.id == principal.user.id}">
-                <button class="btn btn-warning" id="placeUpdateBtn">수정</button>
+                <a href="/places/update/${place.id}" class="btn btn-warning">수정</a>
                 <button class="btn btn-danger" id="placeDelBtn">삭제</button>
             </c:if>
         </div>

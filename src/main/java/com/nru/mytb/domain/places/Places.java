@@ -40,4 +40,9 @@ public class Places extends BaseTimeEntity {
         this.count = count;
         this.user = user;
     }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }

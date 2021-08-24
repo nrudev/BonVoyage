@@ -29,4 +29,10 @@ public class PlacesController {
         model.addAttribute("place", placesService.findById(id));
         return "/places/place-detail";
     }
+
+    @GetMapping("/places/update/{id}")
+    public String placeUpdate(@PathVariable Long id, Model model) {
+        model.addAttribute("place", placesService.findById(id));
+        return "/places/place-update";
+    }
 }

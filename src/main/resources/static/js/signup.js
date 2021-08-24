@@ -2,7 +2,7 @@ let validationCheck = ["", "", false];
 
 let signup = {
     init: function () {
-        _this = this;
+        let _this = this;
 
         $('#signupBtn').on('click', function () {
             _this.save();

@@ -4,6 +4,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header place-infos">
+            <input type="hidden" id="boardId" value="${place.id}" />
             <div class="place-title">${place.title}</div>
             <div class="place-info">
                 <small class="place-count">조회수 : ${place.count}</small><br/>

@@ -50,4 +50,9 @@ public class PlacesServiceImpl implements PlacesService {
 
         return places.getId();
     }
+
+    @Override
+    public void remove(Long id) {
+        placesRepository.deleteById(id);
+    }
 }

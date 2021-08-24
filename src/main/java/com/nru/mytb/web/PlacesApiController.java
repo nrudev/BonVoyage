@@ -25,4 +25,9 @@ public class PlacesApiController {
         return placesService.update(id, requestDto);
     }
 
+    @DeleteMapping("/api/places/{id}")
+    public void removePlace(@PathVariable Long id) {
+        placesService.remove(id);
+    }
+
 }

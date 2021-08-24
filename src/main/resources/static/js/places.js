@@ -14,6 +14,9 @@ let places = {
         $('#placeUpdateBtn').on('click', function () {
             _this.update();
         });
+        $('#placeDelBtn').on('click', function () {
+            _this.remove();
+        });
     },
     save: function () {
         let data = {
@@ -53,7 +56,22 @@ let places = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
+    },
+    remove: function () {
+        let id = $('#boardId').val();
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/places/' + id,
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
+            alert('글이 삭제되었습니다.');
+            window.location.href = "/places";
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
     }
+
 }
 
 places.init();

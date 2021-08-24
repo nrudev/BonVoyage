@@ -16,4 +16,6 @@ public interface PlacesService {
     PlacesResponseDto findById(Long id);
 
     Long update(Long id, PlacesUpdateRequestDto requestDto);
+
+    void remove(Long id);
 }

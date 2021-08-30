@@ -12,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class PlacesServiceImpl implements PlacesService {
@@ -51,5 +54,12 @@ public class PlacesServiceImpl implements PlacesService {
     @Override
     public void remove(Long id) {
         placesRepository.deleteById(id);
+    }
+
+    @Override
+    public List<PlacesResponseDto> findTop4ByOrderByCountDesc() {
+        return placesRepository.findTop4ByOrderByCountDesc().stream()
+                .map(PlacesResponseDto::new)
+                .collect(Collectors.toList());
     }
 }

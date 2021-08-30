@@ -1,12 +1,10 @@
 .main-photo {
-    margin: 10px 20px;
+    margin: 0;
 }
 
 .main-photo img {
     width: 100%;
-    min-width: 590px;
-    max-width: 1200px;
-    height: 30rem;
+    height: 32rem;
     position: relative;
 }
 
@@ -32,4 +30,24 @@
     font-size: 18px;
     top: 24rem;
     color: black;
+}
+
+.top-ratings-title {
+    margin: 30px;
+}
+
+.top-ratings {
+    display: flex;
+    margin: 20px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+}
+
+.top-ratings-places {
+    flex: 0.23;
+    height: 300px;
+}
+
+.top-ratings-places a {
+    font-size: 20px;
 }

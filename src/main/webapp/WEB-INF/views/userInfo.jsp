@@ -1,30 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="./layout/header.jsp"%>
-<link rel="stylesheet" href="/css/login.css">
 
 <div class="card">
-    <div class="card-header">LOGIN</div>
-    <form action="/login" method="post">
+    <div class="card-header">회원정보</div>
+    <form>
+        <input type="hidden" id="userId" value="${principal.user.id}" />
         <div class="card-body">
             <div class="form-group">
                 <label for="email">이메일</label>
-                <input type="email" class="form-control" id="email" name="email" />
+                <input type="email" class="form-control" id="email" value="${principal.user.email}" readonly />
             </div>
             <div class="form-group">
                 <label for="password">비밀번호</label>
                 <input type="password" class="form-control" id="password" name="password" />
             </div>
-            <div class="form-check">
-                <label for="remember" class="form-check-label">
-                    <input type="checkbox" class="form-check-input" id="remember" />Remember Me
-                </label>
+            <div class="form-group">
+                <label for="nick">닉네임</label>
+                <input type="text" class="form-control" id="nick" name="nick" value="${principal.user.nick}" />
             </div>
-            <a href="/signup">아직 회원이 아니신가요?</a>
         </div>
         <div class="card-footer">
-            <button class="btn btn-info form-control" id="loginBtn">로그인</button>
+            <button type="button" class="btn btn-info form-control" id="userUpdateBtn">수정완료</button>
         </div>
     </form>
 </div>
 
+<script src="/js/user.js"></script>
 <%@include file="./layout/footer.jsp"%>

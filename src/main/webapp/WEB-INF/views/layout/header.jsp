@@ -42,6 +42,9 @@
                         <a class="nav-link" href="/loginForm">Login</a>
                     </c:when>
                     <c:otherwise>
+                        <a class="nav-link" href="/user/${principal.user.id}">UserInfo</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </c:otherwise>
                 </c:choose>

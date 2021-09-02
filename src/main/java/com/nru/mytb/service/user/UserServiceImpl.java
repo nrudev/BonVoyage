@@ -1,7 +1,9 @@
 package com.nru.mytb.service.user;
 
+import com.nru.mytb.domain.user.User;
 import com.nru.mytb.domain.user.UserRepository;
 import com.nru.mytb.web.dto.user.UserSaveRequestDto;
+import com.nru.mytb.web.dto.user.UserUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,5 +35,21 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean nickValidateCheck(String nick) {
         return userRepository.findByNick(nick) == null;
+    }
+
+    @Override
+    public Long update(Long id, UserUpdateRequestDto requestDto) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
+
+        if (requestDto.getPassword().equals("") || requestDto.getPassword() == null) {
+            user.update(user.getPassword(), requestDto.getNick());
+        } else {
+            String encPassword = bCryptPasswordEncoder.encode(requestDto.getPassword());
+            user.update(encPassword, requestDto.getNick());
+        }
+
+        userRepository.save(user);
+
+        return user.getId();
     }
 }

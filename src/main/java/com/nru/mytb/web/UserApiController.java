@@ -2,6 +2,7 @@ package com.nru.mytb.web;
 
 import com.nru.mytb.service.user.UserService;
 import com.nru.mytb.web.dto.user.UserSaveRequestDto;
+import com.nru.mytb.web.dto.user.UserUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,5 +25,10 @@ public class UserApiController {
     @PostMapping("/api/user/nickCheck")
     public boolean nickCheck(@RequestBody String nick) {
         return userService.nickValidateCheck(nick);
+    }
+
+    @PutMapping("/api/user/update/{id}")
+    public Long updateUserInfo(@PathVariable Long id, @RequestBody UserUpdateRequestDto requestDto) {
+        return userService.update(id, requestDto);
     }
 }

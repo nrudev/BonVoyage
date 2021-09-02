@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="./layout/header.jsp"%>
+<link rel="stylesheet" href="/css/userInfo.css">
 
 <div class="card">
     <div class="card-header">회원정보</div>
@@ -17,6 +18,7 @@
             <div class="form-group">
                 <label for="nick">닉네임</label>
                 <input type="text" class="form-control" id="nick" name="nick" value="${principal.user.nick}" />
+                <button type="button" class="btn btn-outline-danger" id="nickUpdValidateBtn" disabled>중복확인</button>
             </div>
         </div>
         <div class="card-footer">

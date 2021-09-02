@@ -37,9 +37,10 @@ public class UserServiceImpl implements UserService{
         return userRepository.findByNick(nick) == null;
     }
 
+    @Transactional
     @Override
     public Long update(Long id, UserUpdateRequestDto requestDto) {
-        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
+        User user = findById(id);
 
         if (requestDto.getPassword().equals("") || requestDto.getPassword() == null) {
             user.update(user.getPassword(), requestDto.getNick());
@@ -48,8 +49,11 @@ public class UserServiceImpl implements UserService{
             user.update(encPassword, requestDto.getNick());
         }
 
-        userRepository.save(user);
-
         return user.getId();
+    }
+
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
     }
 }

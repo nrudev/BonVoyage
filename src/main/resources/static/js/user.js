@@ -10,10 +10,10 @@ let user = {
         });
         $('#nick').on('blur', function () {
             _this.activateValidationBtn();
-        })
+        });
         $('#nickUpdValidateBtn').on('click', function () {
             _this.nickValidation();
-        })
+        });
     },
     update: function () {
         let id = $('#userId').val();
@@ -30,6 +30,8 @@ let user = {
         }
         if (!$('#nickUpdValidateBtn').attr('disabled')) {
             alert('닉네임 중복확인이 필요합니다.');
+        } else if (nickValidation === firstNick && (password === "" || password === null)) {
+            alert('수정할 내용이 없습니다.');
         } else {
             $.ajax({
                 type: 'PUT',
@@ -38,13 +40,12 @@ let user = {
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8'
             }).done(function () {
-                alert('회원정보가 수정되었습니다.');
-                window.location.href = "/";
+                alert('회원정보가 수정되었습니다. 다시 로그인해주세요.');
+                window.location.href = "/logout";
             }).fail(function (error) {
-                alert(JSON.stringify(error));
+                console.log(JSON.stringify(error));
             });
         }
-
     },
     activateValidationBtn: function () {
         let nick = $('#nick').val().replaceAll(" ", "");

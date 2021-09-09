@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().ignoringAntMatchers("/h2-console/**").disable();
+        http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/places/save").authenticated()
                 .antMatchers("/places/update").authenticated()

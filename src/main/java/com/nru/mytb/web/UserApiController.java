@@ -1,13 +1,11 @@
 package com.nru.mytb.web;
 
-import com.nru.mytb.domain.user.User;
 import com.nru.mytb.service.user.UserService;
 import com.nru.mytb.web.dto.user.UserSaveRequestDto;
 import com.nru.mytb.web.dto.user.UserUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @RestController
@@ -33,7 +31,6 @@ public class UserApiController {
     @PutMapping("/api/user/update/{id}")
     public Long updateUserInfo(@PathVariable Long id, @RequestBody UserUpdateRequestDto requestDto) {
         userService.update(id, requestDto);
-
         return id;
     }
 }

@@ -10,3 +10,14 @@
     font-size: 30px;
     letter-spacing: 10px;
 }
+
+.sns-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sns-login a img {
+    height: 45px;
+}

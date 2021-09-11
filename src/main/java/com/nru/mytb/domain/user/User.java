@@ -29,12 +29,17 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private Role role;
 
+    private String provider;
+    private String providerId;
+
     @Builder
-    public User(String email, String password, String nick, Role role) {
+    public User(String email, String nick, String password, Role role, String provider, String providerId) {
         this.email = email;
         this.nick = nick;
         this.password = password;
         this.role = role;
+        this.provider = provider;
+        this.providerId = providerId;
     }
 
     public void update(String password, String nick) {

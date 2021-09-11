@@ -15,12 +15,16 @@ public class UserSaveRequestDto {
     private String email;
     private String nick;
     private String password;
+    private String provider;
+    private String providerId;
 
     @Builder
-    public UserSaveRequestDto(String email, String nick, String password) {
+    public UserSaveRequestDto(String email, String nick, String password, String provider, String providerId) {
         this.email = email;
         this.nick = nick;
         this.password = password;
+        this.provider = provider;
+        this.providerId = providerId;
     }
 
     public User toEntity() {
@@ -29,6 +33,8 @@ public class UserSaveRequestDto {
                 .nick(nick)
                 .password(password)
                 .role(Role.ROLE_USER)
+                .provider(provider)
+                .providerId(providerId)
                 .build();
     }
 }

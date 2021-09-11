@@ -26,5 +26,8 @@
         </div>
     </form>
 </div>
+<div class="sns-login">
+    <a href="/oauth2/authorization/google"><img src="/images/google_login.png" alt="구글 로그인"></a>
+</div>
 
 <%@include file="./layout/footer.jsp"%>

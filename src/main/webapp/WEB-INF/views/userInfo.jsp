@@ -11,10 +11,12 @@
                 <label for="email">이메일</label>
                 <input type="email" class="form-control" id="email" value="${principal.user.email}" readonly />
             </div>
-            <div class="form-group">
-                <label for="password">비밀번호</label>
-                <input type="password" class="form-control" id="password" name="password" />
-            </div>
+            <c:if test="${empty principal.user.provider}">
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" id="password" name="password" />
+                </div>
+            </c:if>
             <div class="form-group">
                 <label for="nick">닉네임</label>
                 <input type="text" class="form-control" id="nick" name="nick" value="${principal.user.nick}" />

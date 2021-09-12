@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService{
     public Long update(Long id, UserUpdateRequestDto requestDto) {
         User user = findById(id);
 
-        if (requestDto.getPassword().equals("") || requestDto.getPassword() == null) {
+        if (requestDto.getPassword() == null || requestDto.getPassword().equals("")) {
             user.update(user.getPassword(), requestDto.getNick());
         } else {
             String encPassword = bCryptPasswordEncoder.encode(requestDto.getPassword());

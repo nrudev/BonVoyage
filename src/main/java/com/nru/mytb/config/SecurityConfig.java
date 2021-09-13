@@ -40,12 +40,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/places/update").authenticated()
                 .antMatchers("/api/places/**").authenticated()
                 .anyRequest().permitAll()
+
                 .and()
                 .formLogin()
                 .loginPage("/loginForm")
                 .usernameParameter("email")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/")
+
+                .and()
+                .logout().deleteCookies("JSESSIONID")
+
+                .and()
+                .rememberMe().key("uniqueAndSecret")
+
                 .and()
                 .oauth2Login()
                 .loginPage("/loginForm")

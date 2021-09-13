@@ -16,7 +16,7 @@
             </div>
             <div class="form-check">
                 <label for="remember" class="form-check-label">
-                    <input type="checkbox" class="form-check-input" id="remember" />Remember Me
+                    <input type="checkbox" class="form-check-input" id="remember" name="remember-me" />Remember Me
                 </label>
             </div>
             <a href="/signup">아직 회원이 아니신가요?</a>

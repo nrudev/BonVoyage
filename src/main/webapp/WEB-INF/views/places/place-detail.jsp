@@ -2,7 +2,7 @@
 <%@include file="../layout/header.jsp"%>
 
 <div class="container">
-    <div class="card">
+    <div class="card place-card">
         <div class="card-header place-infos">
             <input type="hidden" id="boardId" value="${place.id}" />
             <div class="place-title">${place.title}</div>

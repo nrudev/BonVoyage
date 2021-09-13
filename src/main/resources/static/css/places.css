@@ -1,3 +1,7 @@
+.place-card {
+    min-width: 688px;
+}
+
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #38a2b847;
 }
@@ -10,4 +14,8 @@
 
 .place-body {
     min-height: 400px;
+}
+
+.place-content p img {
+    max-width: 660px;
 }

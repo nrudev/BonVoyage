@@ -1,5 +1,7 @@
 package com.nru.mytb.domain.user;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -11,5 +13,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByNick(String nick);
 
-    List<User> findAllByOrderByIdDesc();
+    Page<User> findAll(Pageable pageable);
 }

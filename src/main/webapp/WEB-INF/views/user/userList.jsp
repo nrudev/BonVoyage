@@ -18,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${users}" var="user">
+        <c:forEach items="${users.content}" var="user">
             <tr>
                 <td class="userId">${user.id}</td>
                 <td>${user.email}</td>
@@ -54,6 +54,37 @@
         </c:forEach>
         </tbody>
     </table>
+    <div class="text-xs-center">
+        <ul class="pagination justify-content-center">
+            <!-- 이전 -->
+            <c:choose>
+                <c:when test="${users.first}"></c:when>
+                <c:otherwise>
+                    <li class="page-item"><a href="/admin/userList?page=0" class="page-link">&laquo;</a></li>
+                    <li class="page-item"><a href="/admin/userList?page=${users.number-1}" class="page-link">&lt;</a></li>
+                </c:otherwise>
+            </c:choose>
+            <!-- 페이지 번호 -->
+            <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                <c:choose>
+                    <c:when test="${users.pageable.pageNumber + 1 == i}">
+                        <li class="page-item disabled"><a href="/admin/userList?page=${i-1}" class="page-link">${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a href="/admin/userList?page=${i-1}" class="page-link">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <!-- 다음 -->
+            <c:choose>
+                <c:when test="${users.last}"></c:when>
+                <c:otherwise>
+                    <li class="page-item"><a href="/admin/userList?page=${users.number+1}" class="page-link">&gt;</a></li>
+                    <li class="page-item"><a href="/admin/userList?page=${users.totalPages-1}" class="page-link">&raquo;</a></li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </div>
 </div>
 
 <script src="/js/admin.js"></script>

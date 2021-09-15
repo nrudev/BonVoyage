@@ -1,5 +1,6 @@
 package com.nru.mytb.service.user;
 
+import com.nru.mytb.domain.places.PlacesRepository;
 import com.nru.mytb.domain.user.User;
 import com.nru.mytb.domain.user.UserRepository;
 import com.nru.mytb.web.dto.user.UserSaveRequestDto;
@@ -16,6 +17,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
+    private final PlacesRepository placesRepository;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -71,5 +73,12 @@ public class UserServiceImpl implements UserService{
         user.update(requestDto.getRole());
 
         return id;
+    }
+
+    @Transactional
+    @Override
+    public void deleteUser(Long id) {
+        placesRepository.deleteAllByUserId(id);
+        userRepository.deleteById(id);
     }
 }

@@ -21,4 +21,6 @@ public interface UserService {
     List<User> findAllByOrderByIdDesc();
 
     Long changeRole(Long id, UserUpdateRequestDto requestDto);
+
+    void deleteUser(Long id);
 }

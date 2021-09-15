@@ -9,4 +9,6 @@ public interface PlacesRepository extends JpaRepository<Places, Long> {
     List<Places> findAllByOrderByIdDesc();
 
     List<Places> findTop4ByOrderByCountDesc();
+
+    void deleteAllByUserId(Long userId);
 }

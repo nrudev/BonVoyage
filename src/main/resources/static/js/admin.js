@@ -1,41 +1,49 @@
-let admin = {
-    init: function () {
-        let _this = this;
-        $('#toAdminBtn').on('click', function () {
-            _this.changeRole();
-        });
-        $('#toUserBtn').on('click', function () {
-            _this.changeRole();
-        });
-    },
-    changeRole: function () {
+$(document).ready(function () {
+    $('#toAdminBtn').on('click', changeRole);
+    $('#toUserBtn').on('click', changeRole);
+    $('#userDelBtn').on('click', deleteUser);
+
+    function changeRole() {
         let currentRow = $(this).closest("tr");
         let id = currentRow.find("td:eq(0)").text();
-        let role = "";
+        let currentRole = currentRow.find("td:eq(3)").text();
+        let newRole = {role: "ROLE_USER"};
 
-        if (currentRow.find("td:eq(3)") === "일반") {
-            role = "ROLE_ADMIN";
-        } else {
-            role = "ROLE_USER";
+        if (currentRole === "일반") {
+            newRole.role = "ROLE_ADMIN";
         }
 
         console.log("id : " + id);
-        console.log("role : " + role);
+        console.log(JSON.stringify(newRole));
 
         $.ajax({
             type: 'PUT',
             url: '/api/admin/' + id,
-            data: JSON.stringify(role),
+            data: JSON.stringify(newRole),
             dataType: 'json',
             contentType: 'application/json; charset=utf-8'
         }).done(function () {
             alert('회원 권한 변경이 정상적으로 처리되었습니다.');
             location.reload();
         }).fail(function (error) {
-            console.log("role : " + role);
             alert(JSON.stringify(error));
         });
     }
-}
 
-// admin.init();
+    function deleteUser() {
+        let currentRow = $(this).closest("tr");
+        let id = currentRow.find("td:eq(0)").text();
+        let nick = currentRow.find("td:eq(2)").text();
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/user/' + id,
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
+            alert(+ nick + " 님의 회원 탈퇴가 정상적으로 처리되었습니다.");
+            location.reload();
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    }
+});

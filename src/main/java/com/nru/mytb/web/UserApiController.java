@@ -4,6 +4,7 @@ import com.nru.mytb.service.user.UserService;
 import com.nru.mytb.web.dto.user.UserSaveRequestDto;
 import com.nru.mytb.web.dto.user.UserUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -32,5 +33,10 @@ public class UserApiController {
     public Long updateUserInfo(@PathVariable Long id, @RequestBody UserUpdateRequestDto requestDto) {
         userService.update(id, requestDto);
         return id;
+    }
+
+    @DeleteMapping("/api/user/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }

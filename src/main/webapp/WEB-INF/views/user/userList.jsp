@@ -2,6 +2,9 @@
 <%@include file="../layout/header.jsp"%>
 
 <div class="container">
+    <div class="list-title">
+        <h1>회원 관리 🧑‍💻</h1>
+    </div>
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
@@ -11,6 +14,7 @@
             <th>회원권한</th>
             <th>가입일</th>
             <th>권한변경</th>
+            <th>기타</th>
         </tr>
         </thead>
         <tbody>
@@ -38,44 +42,19 @@
                         </c:if>
                     </c:otherwise>
                 </c:choose>
+                <c:choose>
+                    <c:when test="${user.email ne principal.user.email}">
+                        <td><button class="btn btn-danger" id="userDelBtn">회원 탈퇴</button></td>
+                    </c:when>
+                    <c:otherwise>
+                        <td></td>
+                    </c:otherwise>
+                </c:choose>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
 
-<script>
-    $(document).ready(function () {
-        $('#toAdminBtn').on('click', changeRole);
-        $('#toUserBtn').on('click', changeRole);
-
-        function changeRole() {
-            let currentRow = $(this).closest("tr");
-            let id = currentRow.find("td:eq(0)").text();
-            let currentRole = currentRow.find("td:eq(3)").text();
-            let newRole = { role : "ROLE_USER" };
-
-            if (currentRole === "일반") {
-                newRole.role = "ROLE_ADMIN";
-            }
-
-            console.log("id : " + id);
-            console.log(JSON.stringify(newRole));
-
-            $.ajax({
-                type: 'PUT',
-                url: '/api/admin/' + id,
-                data: JSON.stringify(newRole),
-                dataType: 'json',
-                contentType: 'application/json; charset=utf-8'
-            }).done(function () {
-                alert('회원 권한 변경이 정상적으로 처리되었습니다.');
-                location.reload();
-            }).fail(function (error) {
-                alert(JSON.stringify(error));
-            });
-        }
-    })
-</script>
-<%--<script src="/js/admin.js"></script>--%>
+<script src="/js/admin.js"></script>
 <%@include file="../layout/footer.jsp"%>

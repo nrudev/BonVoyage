@@ -24,4 +24,10 @@ public class AdminController {
         return userService.changeRole(id, requestDto);
     }
 
+    @DeleteMapping("/api/admin/user/{id}")
+    public @ResponseBody void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+    }
+
+
 }

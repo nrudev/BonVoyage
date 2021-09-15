@@ -9,3 +9,7 @@ input#nick {
 .form-control, button {
     display: inline-block;
 }
+
+.card-footer button {
+    margin: 5px auto;
+}

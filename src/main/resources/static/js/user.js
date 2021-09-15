@@ -14,6 +14,9 @@ let user = {
         $('#nickUpdValidateBtn').on('click', function () {
             _this.nickValidation();
         });
+        $('#userDelBtn').on('click', function () {
+            _this.delete();
+        })
     },
     update: function () {
         let id = $('#userId').val();
@@ -83,6 +86,21 @@ let user = {
                 alert(JSON.stringify(error));
             });
         }
+    },
+    delete: function () {
+        let id = $('#userId').val();
+        let nick = $('#nick').val();
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/user/' + id,
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
+            alert(nick + " 님 회원 탈퇴가 정상적으로 처리되었습니다.");
+            window.location.href = "/";
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
     }
 }
 

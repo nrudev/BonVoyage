@@ -25,6 +25,7 @@
         </div>
         <div class="card-footer">
             <button type="button" class="btn btn-info form-control" id="userUpdateBtn">수정완료</button>
+            <button type="button" class="btn btn-danger form-control" id="userDelBtn">회원탈퇴</button>
         </div>
     </form>
 </div>

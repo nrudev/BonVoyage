@@ -5,6 +5,7 @@ import com.nru.mytb.web.dto.user.UserSaveRequestDto;
 import com.nru.mytb.web.dto.user.UserUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -35,8 +36,10 @@ public class UserApiController {
         return id;
     }
 
+    @Secured("ROLE_USER")
     @DeleteMapping("/api/user/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+        SecurityContextHolder.clearContext();
     }
 }

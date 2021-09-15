@@ -37,10 +37,10 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/user/' + id,
+            url: '/api/admin/user/' + id,
             contentType: 'application/json; charset=utf-8'
         }).done(function () {
-            alert(+ nick + " 님의 회원 탈퇴가 정상적으로 처리되었습니다.");
+            alert(nick + " 님의 회원 탈퇴가 정상적으로 처리되었습니다.");
             location.reload();
         }).fail(function (error) {
             alert(JSON.stringify(error));

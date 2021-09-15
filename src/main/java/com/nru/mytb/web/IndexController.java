@@ -31,7 +31,7 @@ public class IndexController {
 
     @GetMapping("/user/{id}")
     public String userInfo(@PathVariable Long id) {
-        return "userInfo";
+        return "/user/userInfo";
     }
 
 }

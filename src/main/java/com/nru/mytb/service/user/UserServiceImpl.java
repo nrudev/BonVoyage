@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService{
@@ -55,5 +57,19 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
+    }
+
+    @Override
+    public List<User> findAllByOrderByIdDesc() {
+        return userRepository.findAllByOrderByIdDesc();
+    }
+
+    @Transactional
+    @Override
+    public Long changeRole(Long id, UserUpdateRequestDto requestDto) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
+        user.update(requestDto.getRole());
+
+        return id;
     }
 }

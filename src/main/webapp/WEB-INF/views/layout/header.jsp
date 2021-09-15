@@ -37,17 +37,20 @@
                 <a class="nav-link" href="/places">Places</a>
             </li>
             <li class="nav-item">
-                <c:choose>
-                    <c:when test="${empty principal}">
-                        <a class="nav-link" href="/loginForm">Login</a>
-                    </c:when>
-                    <c:otherwise>
+                <sec:authorize access="isAnonymous()">
+                    <a class="nav-link" href="/loginForm">Login</a>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <a class="nav-link" href="/admin/userList">UserList</a>
+                    </li>
+                    <li class="nav-item">
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
                         <a class="nav-link" href="/user/${principal.user.id}">UserInfo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
-                    </c:otherwise>
-                </c:choose>
+                </sec:authorize>
             </li>
         </ul>
     </nav>

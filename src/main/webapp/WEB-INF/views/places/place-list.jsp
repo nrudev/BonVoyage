@@ -27,7 +27,9 @@
         </c:forEach>
         </tbody>
     </table>
-    <a href="/places/save" class="btn btn-info">글쓰기</a>
+    <sec:authorize access="isAuthenticated()">
+        <a href="/places/save" class="btn btn-info">글쓰기</a>
+    </sec:authorize>
     <div class="text-xs-center">
         <ul class="pagination justify-content-center">
             <!-- 이전 -->

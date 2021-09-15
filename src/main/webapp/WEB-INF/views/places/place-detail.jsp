@@ -18,6 +18,8 @@
             <a href="/places" class="btn btn-secondary">목록</a>
             <c:if test="${place.user.id == principal.user.id}">
                 <a href="/places/update/${place.id}" class="btn btn-warning">수정</a>
+            </c:if>
+            <c:if test="${place.user.id == principal.user.id || principal.user.role eq 'ROLE_ADMIN'}">
                 <button class="btn btn-danger" id="placeDelBtn">삭제</button>
             </c:if>
         </div>

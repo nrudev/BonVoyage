@@ -6,7 +6,6 @@ build/
 !**/src/test/**/build/
 
 **/src/main/resources/application-local.yml
-**/src/main/resources/application-oauth.yml
 **/src/test/java/com/nru/mytb/config/JasyptConfigTest.java
 
 ### STS ###

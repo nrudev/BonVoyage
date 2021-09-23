@@ -1,0 +1,30 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  datasource:
+    hikari:
+      maximum-pool-size: 4
+    driver-class-name: ENC(PYPVYP+AAcUfUmkviDlw+zIHve0YWFP4JuXB/S4vNIM=)
+    url: ENC(qDZY/DqHFYECJQNyiJHlWvu0OGP1ErQrh9u3HTiDPQAFKcKXxV4E6vH2YkOyfYWwzY4Birw18e5jUpjJ9Xc+9Q5W4cRm82xi3PzahVqUL/WNTVGmDpCQ3/RcVg8v5BwR)
+    username: ENC(+xaM/aBqmRlrbcawGGm1sw==)
+    password: ENC(8+EFTtTUHe9wryC5Gv+F5iMxfQnq5cCI)

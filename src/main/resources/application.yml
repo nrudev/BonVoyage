@@ -1,4 +1,8 @@
 spring:
   profiles:
-    active: local
+    active: prod
     include: oauth
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor

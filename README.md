@@ -16,19 +16,26 @@
 ## [🔝](#toc)<a name="1">1. 기술 스택</a>
 
 - Front-end
+  
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white"><img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"><img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
-
+  
 - Back-end
 
-  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/spring boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"><img src="https://img.shields.io/badge/spring security-6DB33F?style=for-the-badge&logo=spring&logoColor=white"><img src="https://img.shields.io/badge/spring data jpa-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
+  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/spring boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/spring security-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/spring data jpa-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
 
-  <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white"><img src="https://img.shields.io/badge/aws-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white">
+  <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=mariadb&logoColor=white"> <img src="https://img.shields.io/badge/aws-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"> 
 
 <br/>
 
 ## [🔝](#toc)<a name="2">2. 핵심 기능</a>
 
-### 2-1. 메인 페이지에 조회수 가장 높은 4개 게시물 노출
+- [메인 페이지에 조회수 가장 높은 4개 게시물 노출](#2-1)
+- [게시물 최신순으로 정렬 및 5개 단위로 페이징](#2-2)
+- [관리자 계정(ROLE_ADMIN)에 권한 부여](#2-3)
+
+  
+
+### <a name="2-1">2-1. 메인 페이지에 조회수 가장 높은 4개 게시물 노출</a>
 
 ![](src/main/resources/static/docs/2-1.gif)
 
@@ -56,7 +63,7 @@ spring:
 
 ![Hibernate가 자동 생성한 쿼리](https://user-images.githubusercontent.com/80450262/135632991-4f90ad33-f9ba-4ac3-a6e6-744567531953.png)
 
-### 2-2. 게시물 최신순으로 정렬 및 5개 단위로 페이징
+### <a name="2-2">2-2. 게시물 최신순으로 정렬 및 5개 단위로 페이징</a>
 
 ![image](https://user-images.githubusercontent.com/80450262/135636400-32bfc8f3-d81b-4331-b42a-8381ed4d974a.png)
 
@@ -110,7 +117,7 @@ SELECT COUNT(id) FROM places;
 
 페이지 블럭으로 보여주기 위해 ```getPageNumber()``` , ```getTotalPages()``` 메서드를 사용하여 현재 페이지와 총 페이지수를 구하고, 최대로 보여줄 페이지 블럭 수를 설정하였습니다. 이를 통해 게시물 개수에 따라 첫 페이지와 끝 페이지의 번호를 결정하는 식을 각각 ```startBlockPage```와 ```endBlockPage``` 에 담아 view로 전달했습니다.
 
-### 2-3. 관리자 계정(ROLE_ADMIN)에 권한 부여
+### <a name="2-3">2-3. 관리자 계정(ROLE_ADMIN)에 권한 부여</a>
 
 ![image](https://user-images.githubusercontent.com/80450262/135647529-a1ae2e95-0e05-4e45-8412-1e26176616b7.png)
 

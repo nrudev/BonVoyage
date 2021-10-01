@@ -3,6 +3,7 @@ package com.nru.mytb.config.auth;
 import com.nru.mytb.domain.user.Role;
 import com.nru.mytb.domain.user.User;
 import com.nru.mytb.domain.user.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -12,13 +13,13 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+//    @Autowired
+//    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -27,7 +28,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
         String provider = userRequest.getClientRegistration().getRegistrationId();
         String providerId = oAuth2User.getAttribute("sub");
         String email = oAuth2User.getAttribute("email");
-        String password = bCryptPasswordEncoder.encode("dugoddmfEjskdy");
+        String password = new BCryptPasswordEncoder().encode("dugoddmfEjskdy");
         String nick = provider + "_" + providerId;
         Role role = Role.ROLE_USER;
 

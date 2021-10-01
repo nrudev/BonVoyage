@@ -2,7 +2,7 @@ package com.nru.mytb.config;
 
 import com.nru.mytb.config.auth.PrincipalDetailsService;
 import com.nru.mytb.config.auth.PrincipalOAuth2UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,13 +16,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private PrincipalDetailsService principalDetailsService;
-
-    @Autowired
-    private PrincipalOAuth2UserService principalOAuth2UserService;
+    private final PrincipalDetailsService principalDetailsService;
+    private final PrincipalOAuth2UserService principalOAuth2UserService;
 
     @Bean
     public BCryptPasswordEncoder pwdEncoder() {
